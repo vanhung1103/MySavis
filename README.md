@@ -14,8 +14,8 @@ Thông tin chi tiết sản phẩm, chương trình ưu đãi, blog giới thi�
 Phân quyền sử dụng(Identity):
 Quản lý sản phẩm, quản lý hoá đơn, quản lý bài viết, quàn lý liên hệ, thống kê doanh thu
 ### Đóng góp
-Trương Văn Trung:
-Đăng nhập, đăng ký, đặt hàng, thanh toán, blog giới thiệu các sản phẩm, chat bot, quản lý bài viết, quản lý hoá đơn, phân quyền
-Phạm Văn Hùng:
-Thông tin chi tiết sản phẩm, chương trình ưu đãi, liên hệ, đánh giá sản phẩm, quản lý sản phẩm, quản lý đơn hàng người dùng, quản lý liên hệ, thống kê doanh thu
-Đào Minh Quang, Triệu Xuân Hòa : Tester
++Trương Văn Trung:
+-Đăng nhập, đăng ký, đặt hàng, thanh toán, blog giới thiệu các sản phẩm, chat bot, quản lý bài viết, quản lý hoá đơn, phân quyền
++Phạm Văn Hùng:
+-Thông tin chi tiết sản phẩm, chương trình ưu đãi, liên hệ, đánh giá sản phẩm, quản lý sản phẩm, quản lý đơn hàng người dùng, quản lý liên hệ, thống kê doanh thu
++Đào Minh Quang, Triệu Xuân Hòa : -Tester
