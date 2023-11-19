@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Assignment.Models.Product>
+    @{
+
+    ViewData["Title"] = "ShowListProduct";
+        Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+
+    }
+    <br />
+    <br />
+    <h1 style="text-align:center">Danh Sách Sản Phẩm</h1>
+<br />
+
+    <form asp-action="ShowListProduct" method="get" role="search" style="float:right">
+        <div class="input-group">
+            <input type="search" class="form-control rounded" placeholder="Nhập Tên hoặc Thương hiệu ..."
+                name="strSearch" aria-label="Search" aria-describedby="search-addon" style="width:300px" />
+            <button type="submit" class="btn btn-outline-primary">Search</button>
+        </div>
+    </form>
+    <table class="table" style="text-align:center">
+        <thead>
+            <tr>
+                <th>
+                    Ảnh
+                </th>
+                <th>
+                    Tên
+                </th>
+                <th>
+                    Giá
+                </th>
+                <th>
+                    Số lượng tồn
+                </th>
+                <th>
+                    Trạng thái
+                </th>
+                <th>
+                    Size
+                </th>
+                <th>
+                    Màu
+                </th>
+                <th>
+                    Thương hiệu
+                </th>
+                <th>
+                    Loại
+                </th>
+                <th>
+                    Mô Tả
+                </th>
+                <th>
+                    Control
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model) {
+            <tr>
+                <td>
+                    <img src="/Images/@item.Image" style="width:70px;height:70px;border-radius:10px">
+                </td>
+                <td>
+                    <br>
+                    @item.Name
+                </td>
+                <td>
+                    <br>
+                    @item.Price
+                </td>
+                <td>
+                    <br>
+                    @item.AvailableQuantity
+                </td>
+                <td>
+                    <br>
+                    @item.Status
+                </td>
+                <td>
+                    <br>
+                    @item.Size
+                </td>
+                <td>
+                    <br>
+                    @item.Color
+                </td>
+                <td>
+                    <br>
+                    @item.Supplier
+                </td>
+                <td>
+                    <br>
+                    @item.Type
+                </td>
+                <td>
+                    <br>
+                    @item.Description
+                </td>
+                <td>
+                    <br>
+                    @Html.ActionLink("Add","AddCouponCodeToProduct","CouponCode", new {id = item.ID, area = "Admin"},new { @class = "btn btn-outline-primary" })
+
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

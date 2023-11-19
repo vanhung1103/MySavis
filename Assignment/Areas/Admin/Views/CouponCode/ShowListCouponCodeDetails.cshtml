@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Assignment.ViewModels.QL_CouponCodeDetailsViews>
+
+@{
+    ViewData["Title"] = "ShowListCouponCodeDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+<br />
+
+<h1 style="text-align:center">Show List Coupon Code Details</h1>
+
+<br />
+<p>
+    <a class="btn btn-outline-success" asp-action="ShowListProductForAddCoupon">Add New Product in Coupon <i class='bx bx-plus-medical'></i></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th style="display:none">
+                @Html.DisplayNameFor(model => model.ID)
+            </th style="display:none">
+            <th style="display:none"> 
+                @Html.DisplayNameFor(model => model.CouponCodeID)
+            </th>
+            <th style="display:none">
+                @Html.DisplayNameFor(model => model.ProductID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CouponValue)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td style="display:none">
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td style="display:none">
+                @Html.DisplayFor(modelItem => item.CouponCodeID)
+            </td>
+            <td style="display:none">
+                @Html.DisplayFor(modelItem => item.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CouponValue)
+            </td>
+            <td>
+                    @Html.ActionLink("Delete","DeleteProductInCouponCodeDetails","CouponCode", new {id = item.ID, area = "Admin"},new { @class = "btn btn-outline-danger" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

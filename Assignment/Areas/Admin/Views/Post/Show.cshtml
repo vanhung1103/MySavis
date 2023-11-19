@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Assignment.Models.Post>
+
+@{
+    ViewData["Title"] = "Show";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Show</h1>
+
+<p>
+    <a class="btn btn-outline-success"  asp-action="Create">Create New <i class='bx bx-plus-medical'></i></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Tittle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TittleImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contents)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+          
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Tittle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TittleImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contents)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Id },new { @class = "btn btn-outline-primary" }) 
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id },new { @class = "btn btn-outline-danger" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

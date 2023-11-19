@@ -1,0 +1,179 @@
+﻿@model Assignment.Models.Product
+@{
+    ViewData["Title"] = "DetailsProduct";
+}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+<div class="container" >
+    <div class="row bg_cl">
+        <div class="col-md-1">
+
+        </div>
+        <div class="col-md-5">
+            <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="/Images/@Model.Image" onerror="this.style.display='none'" alt="image"style="width:auto;height:500px">
+                </div>
+                <div class="carousel-item">
+                  <img src="/Images/@Model.Image1" onerror="this.style.display='none'" alt="image1"style="width:auto;height:500px">
+                </div>
+                <div class="carousel-item">
+                  <img src="/Images/@Html.DisplayFor(model => model.Image2)"onerror="this.style.display='none'" alt="image2"style="width:auto;height:500px">
+                </div>
+                <div class="carousel-item">
+                  <img src="/Images/@Html.DisplayFor(model => model.Image3)" onerror="this.style.display='none'" alt="image3"style="width:auto;height:500px">
+                </div>
+                <div class="carousel-item">
+                  <img src="/Images/@Html.DisplayFor(model => model.Image4)" onerror="this.style.display='none'" alt="image4"style="width:auto;height:500px">
+                </div>
+                <div class="carousel-item">
+                  <img src="/Images/@Html.DisplayFor(model => model.Image5)" onerror="this.style.display='none'" alt="image5"style="width:auto;height:500px">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+               <i style="font-size:40px;color:black" class="fa-solid fa-chevron-left"></i>
+
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+                <i style="font-size:40px;color:black" class="fa-solid fa-chevron-right"></i>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>            
+<form method="post" asp-action="AddProductToCart" asp-controller="Cart">
+                <div>
+                <div class="col-md-3">
+                    <div class="buttons_added" style="margin-top: 45px;">
+                        <label for="">Size &emsp;&emsp;&emsp;&emsp;</label>
+                        <input class="minus is-form" type="button" value="-">
+                        <input aria-label="quantity" class="input-qty" max="100" min="1" readonly name="quantityDetail" type="number" value="@Model.Size">
+                        <input class="plus is-form" type="button" value="+">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="buttons_added" style="margin-top: 45px;">
+                        <label for="">Số Lượng&emsp;&emsp; </label>
+                        <input class="minus is-form" type="button" value="-">
+                        <input aria-label="quantity" class="input-qty" max="100" min="1" name="quantityDetails" value="1" type="number">
+                        <input class="plus is-form" type="button" value="+">
+                    </div>
+                </div>
+                <input type="text" style="display:none" name="id" value="@Model.ID" />
+                <div style="padding-top:20px">
+                    <button class="btn btn-primary"style="float: right;" type="submit">Thêm <i class="fas fa-shopping-cart" style="font-size:20px"></i></button>
+                </div>
+            </div>
+</form>
+        </div>
+
+            <div class="col-md-3">
+             <h3 name="name1" >@Html.DisplayFor(model => model.Name)</h3>
+             <hr>
+             <span>Mã sản phẩm: N/A</span>
+            <span style="float: right;">Đã bán: 255</span>
+            <p>Tình Trạng: <span style="color: green;">@Html.DisplayFor(model => model.Status)</span></p>
+            @{
+                int giagoc = Model.Price *3/2;
+                int tietkiem = giagoc - Model.Price;
+            }
+            <div class="row bg-cl-red">
+                <div class="col-md-7">
+                    <p>Giá Sale : <span class="sp">@Model.Price đ</span></p>
+
+                    <p>Giá Gốc : <del>@giagoc đ</del></p>
+                    <p>Tiết Kiệm: <span class="sp">@tietkiem đ</span></p>
+                </div>
+                <div class="col-md-5">
+                    <p>Flash sale kết thúc sau:</p>
+                    <p style="text-align: center; font-weight: bold;">1 giờ 21 phút</p>
+                    <p><i class="bi bi-tag"></i> ĐÃ BÁN<span style="color: yellow;font-weight: bold;"> 41</span>/@Model.AvailableQuantity
+                    </p>
+
+                </div>
+
+
+            </div>
+                        <div class="row sp2">
+                <div class="col-md-2">
+                    <img src="/Images/uudai.svg" alt="">
+                </div>
+                <div class="col-auto">
+                    <p>Mua càng nhiều ưu đãi càng lớn</p>
+                    <p>(Ưu đãi có thể kết thúc sớm)</p>
+                    <br>
+                    <p><i class="bi bi-star" style="color:blue;"></i> Giảm thêm 10% khi mua 2 sản phẩm</p>
+                    <p><i class="bi bi-star" style="color:blue;"></i> Freeship khi mua 2 đôi</p>
+                    <p><i class="bi bi-star" style="color:blue;"></i> Tặng tất theo sản phẩm(Tùy đôi)</p>
+                </div>
+            </div>
+            </div>
+        <div class="col-md-3">
+            
+            <div>
+                <a href=""><img src="/Images/header_logo.png" width="30%" alt=""></a><span
+                    style="text-decoration: none;"> Trung snacker</span>
+            </div>
+            <div class="row rowss">
+                <div class="col-md-4">
+                    <img width="50%" src="/Images/hoan-tien.jpg" alt="">
+                    <p>Hoàn tiền
+                        100%
+                        nếu không đúng hàng</p>
+                </div>
+                <div class="col-md-4">
+                    <img width="50%" src="/Images/unbox.jpg" alt="">
+                    <p>Nhận hàng
+                        Kiểm tra hàng
+                        Thoải mái</p>
+                </div>
+                <div class="col-md-4">
+                    <img width="50%" src="/Images/doi-tra.jpg" alt="">
+                    <p>Đổi trả trong
+                        7 ngày
+                        nếu sp lỗi</p>
+                </div>
+                <p style="text-align: center; color: red;">Hotline đặt hàng</p>
+                <h5 style="text-align: center; color: red;">+84 376 810 024</h5>
+            </div>
+
+    
+        </div>
+    </div>
+
+    <div style="margin-top:30px">
+        <h4 style="padding-bottom: 20px;">Thông Tin Sản Phẩm</h4>
+        <div class="row">
+            <div class="col-md-3">
+                <p style="font-weight: bold;">Size :</p>
+                <p style="font-weight: bold;">Quà Tặng :</p>
+                <p style="font-weight: bold;">Thương Hiệu :</p>
+                <p style="font-weight: bold;">Loại Hàng :</p>
+                <p style="font-weight: bold;">Màu Sắc :</p>
+                <p style="font-weight: bold;">Số lượng tồn :</p>
+                <p style="font-weight: bold;">Mô tả :</p>
+            </div>
+            <div class="col-md-9">
+                <p ng-model="size">@Html.DisplayFor(model => model.Size)</p>
+                <p>Combo vệ sinh giày</p>
+                <p ng-model="thuongHieu">@Html.DisplayFor(model => model.Supplier)</p>
+                <p ng-model="loaiHang">@Html.DisplayFor(model => model.Type)</p>
+                <p ng-model="mauSac">@Html.DisplayFor(model => model.Color)</p>
+                <p ng-model="mauSac">@Html.DisplayFor(model => model.AvailableQuantity)</p>
+                <p ng-model="mauSac">@Html.DisplayFor(model => model.Description)</p>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top:30px">
+        <h4 style="padding-bottom: 20px;">Mô tả chi tiết sản phẩm</h4>
+        <p>
+            <p>Giày <span ng-model="ten" style="color: forestgreen; font-weight: bold;">@Html.DisplayFor(model => model.Name)</span>
+             @Html.DisplayFor(model => model.Type) với thiết kế đẹp, tinh tế & màu sắc vô cùng dễ phối đồ. Vậy nên đôi giày này trở nên phổ biến, mang tính biểu tượng và được rất nhiều giới trẻ yêu thích.</p>
+<p>Và nếu bạn cũng là một người đam mê dòng sneaker dễ mang, dễ phố đồ thì không nên bỏ qua mẫu giày siêu phẩm này đâu nhé! Dưới đây là một số hình ảnh của đôi Giày @Html.DisplayFor(model => model.Name) @Html.DisplayFor(model => model.Type) tại Trung Sneaker (hàng chuẩn @Html.DisplayFor(model => model.Type) bản xịn nhất thị trường). – Cam kết bản Fake tốt nhất từ nhà máy tốt nhất Trung Quốc.</p>
+
+<p>NOTE: Đây là hàng VIP từ nhà máy Trung Quốc (giống 99,99% Auth, chất da thật như Auth) – các shop đang bán 3-4 triệu (bạn có thể check) – Trung Sneaker ôm được lô do Hải Quan thu nên Sale giá rẻ nhất. Size số có hạn nhé.</p>
+        </p>
+    </div>
+</div>
+</div>

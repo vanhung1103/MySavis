@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Assignment.ViewModels.QL_BillDetailsViews>
+@{
+    ViewData["Title"] = "PrintBill";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Bill bill = ViewBag.bill;
+}
+
+<h1>PrintBill</h1>
+<br />
+<hr />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Image
+            </th>
+            <th>
+                ProductName
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Size
+            </th>
+            <th>
+                Color
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img src="/Images/@item.Image" alt="" style="width:70px;height:70px;border-radius:10px">
+            </td>
+            <td>
+                @item.ProductName 
+            </td>
+            <td>
+                @item.Quantity sp
+            </td>
+            <td>
+                @item.Price vnđ
+            </td>
+            <td>
+                @item.Type
+            </td>
+            <td>
+                @item.Size
+            </td>
+            <td>
+                @item.Color
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<br />
+<hr />
+<br />
+<table class="table">
+    <tr>
+        <th>Thông tin người nhận</th>
+    </tr>
+    <tr>
+        <td>Tên người nhận</td>
+        <td>@bill.RecipientName</td>
+    </tr>
+    <tr>
+        <td>Địa chỉ</td>
+        <td>@bill.RecipientAddress</td>
+    </tr>
+    <tr>
+        <td>Số Điện Thoại</td>
+        <td>@bill.RecipientPhoneNumber</td>
+    </tr>
+    <tr>
+        <td>Phí Ship</td>
+        <td>@bill.ShippingFee vnđ</td>
+    </tr>
+    <tr>
+        <td>Giảm giá</td>
+        <td>@bill.Discount vnđ</td>
+    </tr>
+    <tr>
+        <td>Tổng tiền</td>
+        <td>@bill.TotalAmout vnđ</td>
+    </tr>
+    <tr>
+        <td>Ngày mua</td>
+        <td>@bill.CreatDate.ToLongDateString() </td>
+    </tr>
+
+</table>

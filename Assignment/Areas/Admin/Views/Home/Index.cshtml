@@ -1,0 +1,108 @@
+﻿@model List<Bill>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    int totalBill = 0;
+    int totalMoney = 0;
+}
+
+<h2>STATISTICS</h2>
+
+@using (Html.BeginForm("SearchByDate", "Home", FormMethod.Post, new { id = "searchForm" }))
+{
+    <label for="startDate">Start Date:</label>
+    <input type="date" name="startDate" id="startDate" />
+
+    <label for="endDate">End Date:</label>
+    <input type="date" name="endDate" id="endDate" />
+
+    <input type="submit" value="Search" />
+}
+
+<table id="yourTableId">
+    <tr hidden>
+        <td>ID</td>
+        <td>Total Amount</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr hidden>
+            <td>@item.ID</td>
+            <td>@item.TotalAmout</td>
+        </tr>
+        totalBill += 1;
+        totalMoney += @item.TotalAmout;
+    }
+    <tr>
+        <td><strong>Total Bill</strong></td>
+        <td><strong id="totalBillCount">@totalBill</strong></td>
+    </tr>
+    <tr>
+        <td><strong>Total Money</strong></td>
+        <td><strong id="totalMoney">@totalMoney</strong></td>
+    </tr>
+</table>
+
+<script>
+    $(document).ready(function () {
+        $('#searchForm').submit(function (e) {
+            e.preventDefault();
+
+            var startDate = $('#startDate').val();
+            var endDate = $('#endDate').val();
+
+            $.ajax({
+                url: '@Url.Action("SearchByDate", "Home")',
+                type: 'POST',
+                data: {
+                    startDate: startDate,
+                    endDate: endDate
+                },
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                dataType: 'json',
+                success: function (data) {
+                    console.log("Data from server:", data);
+                    updateTable(data);
+                },
+                error: function (error) {
+                    console.log("Ajax request failed:", error);
+                }
+            });
+
+            console.log(startDate);
+            console.log(endDate);
+        });
+    });
+
+   function updateTable(data) {
+    var table = $('#yourTableId tbody');
+    table.empty();
+
+    var totalSum = 0;
+    var totalCount = 0;
+
+    $.each(data, function (index, item) {
+        var rowHtml =
+            '<tr >' +
+            '<td>' + item.createDate + '</td>' +
+            '<td>' + item.totalAmout + '</td>' +
+            '</tr>';
+
+        totalSum += item.totalAmout;
+        totalCount++;
+   
+        table.append(rowHtml);
+    });
+         console.log(totalSum);
+console.log(totalCount);
+    // Dòng đã sửa lỗi
+    $('#totalBillCount').text(totalCount);
+    $('#totalMoney').text(totalSum);
+
+    console.log($('#totalBillCount'));
+    console.log($('#totalMoney'));
+}
+
+
+</script>

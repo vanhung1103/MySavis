@@ -1,0 +1,414 @@
+﻿@model IEnumerable<Assignment.Models.Product>
+@using Assignment.Models;
+@{
+    List<Product> PriceDesc = (List<Product>)ViewBag.PriceDesc;
+    List<Product> PriceAsc = (List<Product>)ViewBag.PriceAsc;
+    List<Product> Nike = (List<Product>)ViewBag.Nike;
+    List<Product> Mlb = (List<Product>)ViewBag.Mlb;
+    List<Product> Adidas = (List<Product>)ViewBag.Adidas;
+}
+            
+    <br />
+    <div class="banner_1">
+        <div class="row">
+            <div class="col-md-8">
+                <a href=""><img src="/Images/banner1.jpg" width="100%" alt=""></a>
+            </div>
+            <div class="col-md-4">
+                <a href=""><img src="/Images/banner2.jpg" width="102%" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <section id="content" >
+            <main>
+			<div class="table-data">
+				<div class="order" style="text-align:center">
+					<a href="/Home/ShowAllProduct?Supplier=vans"><img  style="padding-left:50px" src="/Images/Supplier_vans.jpg" alt=""/></a>
+                    <a href="/Home/ShowAllProduct?Supplier=mlb"><img  style="padding-left:50px" src="/Images/Supplier_mlb.jpg" alt=""/></a>
+                    <a href="/Home/ShowAllProduct?Supplier=nike"><img style="padding-left:50px" src="/Images/Supplier_nike.jpg" alt=""/></a>
+                    <a href="/Home/ShowAllProduct?Supplier=lv"><img style="padding-left:50px;" src="/Images/Supplier_Lv.jpg" alt=""/></a>
+                    <a href="/Home/ShowAllProduct?Supplier=adidas"><img style="padding-left:50px" src="/Images/Supplier_adidas.jpg" alt=""/></a>
+                    <a href="/Home/ShowAllProduct?Supplier=converse"><img style="padding-left:50px" src="/Images/Supplier_converse.jpg" alt=""/></a>	
+				</div>
+			</div>
+		</main>
+        </section>
+        
+        <section id="content" >
+            <main>
+			<div class="table-data">
+				<div class="order row">
+					<h3 class="text-danger"><i class="fa-solid fa-fire"></i> Dealhot</h3>
+                    <br />
+                    @foreach (var item in PriceAsc)
+                    {
+                        <div class="col-md-3">
+                <a class="nav-item" style="text-decoration:none" href="/Home/DetailsProduct/@item.ID">
+                <div class="card" style="width: auto;border: 2px solid green;border-radius:10px">
+                    <img style="border-radius:10px" src="/Images/@item.Image"
+                        class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Description</p>
+                        <p style="color: gainsboro">
+                            <i style="font-size:30px"
+                                class="fa-solid fa-cart-shopping">&emsp;</i><span>@item.Type</span>
+                                <p>    Còn: @item.AvailableQuantity sp</p>
+                        </p>
+                        <p class="card-text" style="color: red;  font-size: 17px">
+                            <span> <i class="fa-brands fa-hotjar"></i> -30%</span>
+                            &emsp;<span style="font-size: 20px"><span style="color:black;font-size: 16px"  >Giá :</span> @item.Price đ</span>
+                        </p>
+                        <br>
+                        <div class="row">
+                            <a href="/Home/DetailsProduct/@item.ID" class="btn btn-outline-success col-md-5">Chi Tiết</a>
+                            <div class="col-md-2"></div>
+                            <a href="/Cart/AddProductToCart/@item.ID" class="btn btn-primary col-md-5">Thêm <i style="font-size:20px"
+                                    class="fa-solid fa-cart-shopping"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                     }
+                </div>
+			</div>
+		</main>
+        </section>
+        <br />
+        <br />
+        <section id="content" >
+            <main>
+			<div class="table-data">
+				<div class="order row">
+					<h3 class="text-danger"><i class="fa-solid fa-fire"></i> Bán chạy</h3>
+                    <br />
+                    @foreach (var item in PriceDesc)
+                    {
+                        <div class="col-md-3">
+                <a class="nav-item" style="text-decoration:none" href="/Home/DetailsProduct/@item.ID">
+                <div class="card" style="width: auto;border: 2px solid green;border-radius:10px">
+                    <img style="border-radius:10px" src="/Images/@item.Image"
+                        class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Description</p>
+                        <p style="color: gainsboro">
+                            <i style="font-size:30px"
+                                class="fa-solid fa-cart-shopping">&emsp;</i><span>@item.Type</span>
+                                <p>    Còn: @item.AvailableQuantity sp</p>
+                        </p>
+                        <p class="card-text" style="color: red;  font-size: 17px">
+                            <span> <i class="fa-brands fa-hotjar"></i> -30%</span>
+                            &emsp;<span style="font-size: 20px"><span style="color:black;font-size: 16px"  >Giá :</span> @item.Price đ</span>
+                        </p>
+                        <br>
+                        <div class="row">
+                            <a href="/Home/DetailsProduct/@item.ID" class="btn btn-outline-success col-md-5">Chi Tiết</a>
+                            <div class="col-md-2"></div>
+                            <a href="/Cart/AddProductToCart/@item.ID" class="btn btn-primary col-md-5">Thêm <i style="font-size:20px"
+                                    class="fa-solid fa-cart-shopping"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                     }
+                </div>
+			</div>
+		</main>
+        </section>
+        <br />
+        <br />
+        @if (Nike.Any())
+    {
+        <section id="content" >
+            <main>
+			<div class="table-data">
+				<div class="order row">
+					<h3 class="text-danger"><i class="fa-solid fa-fire"></i> Giày Nike</h3>
+                    <br />
+                    @foreach (var item in Nike)
+                    {
+                        <div class="col-md-3">
+                <a class="nav-item" style="text-decoration:none" href="/Home/DetailsProduct/@item.ID">
+                <div class="card" style="width: auto;border: 2px solid green;border-radius:10px">
+                    <img style="border-radius:10px" src="/Images/@item.Image"
+                        class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Description</p>
+                        <p style="color: gainsboro">
+                            <i style="font-size:30px"
+                                class="fa-solid fa-cart-shopping">&emsp;</i><span>@item.Type</span>
+                                <p>    Còn: @item.AvailableQuantity sp</p>
+                        </p>
+                        <p class="card-text" style="color: red;  font-size: 17px">
+                            <span> <i class="fa-brands fa-hotjar"></i> -30%</span>
+                            &emsp;<span style="font-size: 20px"><span style="color:black;font-size: 16px"  >Giá :</span> @item.Price đ</span>
+                        </p>
+                        <br>
+                        <div class="row">
+                            <a href="/Home/DetailsProduct/@item.ID" class="btn btn-outline-success col-md-5">Chi Tiết</a>
+                            <div class="col-md-2"></div>
+                            <a href="/Cart/AddProductToCart/@item.ID" class="btn btn-primary col-md-5">Thêm <i style="font-size:20px"
+                                    class="fa-solid fa-cart-shopping"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                     }
+                </div>
+			</div>
+		</main>
+        </section>
+    }
+    <br />
+        <br />
+        @if (Mlb.Any())
+    {
+        <section id="content" >
+            <main>
+			<div class="table-data">
+				<div class="order row">
+					<h3 class="text-danger"><i class="fa-solid fa-fire"></i> Giày MLB</h3>
+                    <br />
+                    @foreach (var item in Mlb)
+                    {
+                        <div class="col-md-3">
+                <a class="nav-item" style="text-decoration:none" href="/Home/DetailsProduct/@item.ID">
+                <div class="card" style="width: auto;border: 2px solid green;border-radius:10px">
+                    <img style="border-radius:10px" src="/Images/@item.Image"
+                        class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Description</p>
+                        <p style="color: gainsboro">
+                            <i style="font-size:30px"
+                                class="fa-solid fa-cart-shopping">&emsp;</i><span>@item.Type</span>
+                                <p>    Còn: @item.AvailableQuantity sp</p>
+                        </p>
+                        <p class="card-text" style="color: red;  font-size: 17px">
+                            <span> <i class="fa-brands fa-hotjar"></i> -30%</span>
+                            &emsp;<span style="font-size: 20px"><span style="color:black;font-size: 16px"  >Giá :</span> @item.Price đ</span>
+                        </p>
+                        <br>
+                        <div class="row">
+                            <a href="/Home/DetailsProduct/@item.ID" class="btn btn-outline-success col-md-5">Chi Tiết</a>
+                            <div class="col-md-2"></div>
+                            <a href="/Cart/AddProductToCart/@item.ID" class="btn btn-primary col-md-5">Thêm <i style="font-size:20px"
+                                    class="fa-solid fa-cart-shopping"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                     }
+                </div>
+			</div>
+		</main>
+        </section>
+    }
+        <br />
+        <br />
+        @if (Adidas.Any())
+    {
+        <section id="content" >
+            <main>
+			<div class="table-data">
+				<div class="order row">
+					<h3 class="text-danger"><i class="fa-solid fa-fire"></i> Giày Adidas</h3>
+                    <br />
+                    @foreach (var item in Adidas)
+                    {
+                        <div class="col-md-3">
+                <a class="nav-item" style="text-decoration:none" href="/Home/DetailsProduct/@item.ID">
+                <div class="card" style="width: auto;border: 2px solid green;border-radius:10px">
+                    <img style="border-radius:10px" src="/Images/@item.Image"
+                        class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Description</p>
+                        <p style="color: gainsboro">
+                            <i style="font-size:30px"
+                                class="fa-solid fa-cart-shopping">&emsp;</i><span>@item.Type</span>
+                                <p>    Còn: @item.AvailableQuantity sp</p>
+                        </p>
+                        <p class="card-text" style="color: red;  font-size: 17px">
+                            <span> <i class="fa-brands fa-hotjar"></i> -30%</span>
+                            &emsp;<span style="font-size: 20px"><span style="color:black;font-size: 16px"  >Giá :</span> @item.Price đ</span>
+                        </p>
+                        <br>
+                        <div class="row">
+                            <a href="/Home/DetailsProduct/@item.ID" class="btn btn-outline-success col-md-5">Chi Tiết</a>
+                            <div class="col-md-2"></div>
+                            <a href="/Cart/AddProductToCart/@item.ID" class="btn btn-primary col-md-5">Thêm <i style="font-size:20px"
+                                    class="fa-solid fa-cart-shopping"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                     }
+                </div>
+			</div>
+		</main>
+        </section>
+    }
+    <div class=" row">
+					<h3 class="text-danger"><i class="fa-solid fa-fire"></i> Tin tức</h3>
+                    <br />
+                        <div class="col-md-3">
+                <a class="nav-item" style="text-decoration:none" href="">
+                <div class="card" style="width: auto;border: 2px solid green;border-radius:10px">
+                    <img style="border-radius:10px" src="https://admin.thegioigiay.com/upload/news/2023/03/top-giay-chay-bo-duoc-ua-chuong-nhat-21032023115943.jpg"
+                        class="card-img-top" />
+                    <div class="card-body">
+                        <a href="#">
+                            <p class="card-text">Top 11 Mẫu Giày Da Nam Hàng Hiệu Cao Cấp Mới Nhất.</p>
+                        </a>
+                        <br>
+                      </div>
+                 </div>
+                        </a>
+                        </div>
+                        <div class="col-md-3">
+                <a class="nav-item" style="text-decoration:none" href="">
+                <div class="card" style="width: auto;border: 2px solid green;border-radius:10px">
+                    <img style="border-radius:10px" src="https://admin.thegioigiay.com/upload/news/2023/03/top-11-mau-giay-bitis-hunter-nam-nu-chinh-hang-tot-nhat-hien-nay-28032023162652.jpg"
+                        class="card-img-top" />
+                    <div class="card-body">
+                        <a href="#">
+                            <p class="card-text">Top 11 Các Hãng Giày Thể Thao Nổi Tiếng Bán Chạy Nhất [2023].</p>
+                        </a>
+                        <br>
+                      </div>
+                 </div>
+                        </a>
+                        </div>
+                        <div class="col-md-3">
+                <a class="nav-item" style="text-decoration:none" href="">
+                <div class="card" style="width: auto;border: 2px solid green;border-radius:10px">
+                    <img style="border-radius:10px" src="https://admin.thegioigiay.com/upload/news/2023/03/top-cac-hang-giay-the-thao-noi-tieng-18032023113104.jpg"
+                        class="card-img-top" />
+                    <div class="card-body">
+                        <a href="#">
+                            <p class="card-text">Top 11 Mẫu Giày Da Nam Hàng Hiệu Cao Cấp Mới Nhất.</p>
+                        </a>
+                        <br>
+                      </div>
+                 </div>
+                        </a>
+                        </div>
+                        <div class="col-md-3">
+                <a class="nav-item" style="text-decoration:none" href="">
+                <div class="card" style="width: auto;border: 2px solid green;border-radius:10px">
+                    <img style="border-radius:10px" src="https://admin.thegioigiay.com/upload/news/2023/03/top-giay-chay-bo-duoc-ua-chuong-nhat-21032023115943.jpg"
+                        class="card-img-top" />
+                    <div class="card-body">
+                        <a href="#">
+                              <p class="card-text">Top 11 Các Hãng Giày Thể Thao Nổi Tiếng Bán Chạy Nhất [2023].</p>
+                        </a>
+                        <br>
+                      </div>
+                 </div>
+                        </a>
+                        </div>
+                        <div class="col-md-3">
+                <a class="nav-item" style="text-decoration:none" href="">
+                <div class="card" style="width: auto;border: 2px solid green;border-radius:10px">
+                    <img style="border-radius:10px" src="https://admin.thegioigiay.com/upload/news/2023/03/top-giay-chay-bo-duoc-ua-chuong-nhat-21032023115943.jpg"
+                        class="card-img-top" />
+                    <div class="card-body">
+                        <a href="#">
+                            <p class="card-text">Top 11 Mẫu Giày Da Nam Hàng Hiệu Cao Cấp Mới Nhất.</p>
+                        </a>
+                        <br>
+                      </div>
+                 </div>
+                        </a>
+                        </div>
+                        <div class="col-md-3">
+                <a class="nav-item" style="text-decoration:none" href="">
+                <div class="card" style="width: auto;border: 2px solid green;border-radius:10px">
+                    <img style="border-radius:10px" src="https://admin.thegioigiay.com/upload/news/2023/03/top-11-mau-giay-bitis-hunter-nam-nu-chinh-hang-tot-nhat-hien-nay-28032023162652.jpg"
+                        class="card-img-top" />
+                    <div class="card-body">
+                        <a href="#">
+                            <p class="card-text">Top 11 Các Hãng Giày Thể Thao Nổi Tiếng Bán Chạy Nhất [2023].</p>
+                        </a>
+                        <br>
+                      </div>
+                 </div>
+                        </a>
+                        </div>
+                        <div class="col-md-3">
+                <a class="nav-item" style="text-decoration:none" href="">
+                <div class="card" style="width: auto;border: 2px solid green;border-radius:10px">
+                    <img style="border-radius:10px" src="https://admin.thegioigiay.com/upload/news/2023/03/top-cac-hang-giay-the-thao-noi-tieng-18032023113104.jpg"
+                        class="card-img-top" />
+                    <div class="card-body">
+                        <a href="#">
+                            <p class="card-text">Top 11 Mẫu Giày Da Nam Hàng Hiệu Cao Cấp Mới Nhất.</p>
+                        </a>
+                        <br>
+                      </div>
+                 </div>
+                        </a>
+                        </div>
+                        <div class="col-md-3">
+                <a class="nav-item" style="text-decoration:none" href="">
+                <div class="card" style="width: auto;border: 2px solid green;border-radius:10px">
+                    <img style="border-radius:10px" src="https://admin.thegioigiay.com/upload/news/2023/03/top-giay-chay-bo-duoc-ua-chuong-nhat-21032023115943.jpg"
+                        class="card-img-top" />
+                    <div class="card-body">
+                        <a href="#">
+                              <p class="card-text">Top 11 Các Hãng Giày Thể Thao Nổi Tiếng Bán Chạy Nhất [2023].</p>
+                        </a>
+                        <br>
+                      </div>
+                 </div>
+                        </a>
+                        </div>
+
+                </div>
+<div class="row">
+    <div class="row-col-md-6">
+        <br />
+        <br />
+        <br />
+          <p><span>
+
+
+
+ 
+
+Một danh nhân đã từng nói: “Một đôi giầy có thể thay đổi cuộc đời bạn”. Quả thật, một đôi giày tốt sẽ làm bạn thoải mái, một đôi giày đẹp sẽ khiến bạn tự tin.
+Nếu đặt một đôi giày thể thao bện cạnh một đôi cao gót, các bạn nữ sẽ chọn đôi giầy cao gót để tôn dáng.
+Nếu đặt một đôi giày thể thao bên cạnh một đôi giày da, giầy tây, các bạn nam công sở ắt hẳn sẽ không chọn giày thể thao.
+Tuy nhiên, đẹp thì đẹp thật, nhưng lại không hữu dụng khi cần thiết, bạn sẽ không thể bảo vệ bạn chân khô ráo, vững vàng khi chạy vội trong mưa, bạn cũng sẽ không thể thuận tiện chơi thể thao cùng sếp, cùng đồng nghiệp khi phải mang những đôi giày công sở đắt tiền mà lại còn sợ hỏng, cũng như khiến đôi chân bạn đau nhức không ngừng.
+Chọn giày cũng như chọn hành trình ta bước, một đôi giày thể thao tốt sẽ cho bạn thỏa sức khám phá và mạo hiểm, chạy nhảy và hoạt động cho cả ngày dài năng động mà không biết mệt mỏi. Một đôi giày thể thao tốt sẽ luôn đồng hành cùng bạn trên mọi nẻo đường, cho dù có nắng nóng, mưa giông, nó cũng sẽ đi cùng bạn, chăm sóc cho đôi chân bạn luôn khô ráo và thoáng mát.
+Một đôi giày thể thao đẹp sẽ giúp bạn tự tin dạo bước với bạn bè khi đi chơi, đi du lịch, giúp cuộc sống hằng ngày của bạn thêm vui vẻ và thành công.
+
+Nhưng làm sao để hữu một đôi giày thể thao giá rẻ vừa đẹp, vừa thời trang và chất lượng ???? Hãy cùng bước vào thế giới tổng quan của Trung Sneaker để trải nghiệm thử nhé ^_^
+.</span>
+<p>&nbsp;</p>
+</blockquote>
+    </div>
+    <div class="row-col-md-6">
+        <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1617.69704999644!2d105.76908185796871!3d20.98015309650621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134534ddcc503ef%3A0xe55e04a042207795!2sBBB%20Queensland%20Pty!5e1!3m2!1svi!2s!4v1679289171482!5m2!1svi!2s"
+    width="1300" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+  
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <hr />
+    <br />

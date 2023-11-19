@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Assignment.Models.Product>
+@{
+    ViewData["Title"] = "ShowAllProduct";
+}
+@{
+	List<Product> products = (List<Product>)ViewBag.listProduct;
+}
+<div >
+    <br />
+    <br />
+                        <div class="nav-link active"><a class="nav-link active"  data-mdb-toggle="dropdown" >Lọc: Hãng</a>
+                        <div class="dropdown" style="margin-left:30px">
+                        <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink">
+                            <li>
+                                @Html.ActionLink("Giày Nike","ShowAllProduct","Home",new{@Supplier = "nike"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                 @Html.ActionLink("Giày MLB","ShowAllProduct","Home",new{@Supplier = "mlb"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                               @Html.ActionLink("Giày Adidas","ShowAllProduct","Home",new{@Supplier = "adidas"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                               @Html.ActionLink("Giày Converse","ShowAllProduct","Home",new{@Supplier = "converse"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                               @Html.ActionLink("Giày Vans","ShowAllProduct","Home",new{@Supplier = "vans"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Giày LV","ShowAllProduct","Home",new{@Supplier = "lv"},new { @class = "dropdown-item" })
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+        <form asp-action="ShowAllProduct" method="get" role="search" style="float:right">
+        <div class="input-group">
+            <input type="search" class="form-control rounded" placeholder="Nhập Tên hoặc Thương hiệu ..."
+                name="strSearch" aria-label="Search" aria-describedby="search-addon" style="width:300px" />
+            <button type="submit" class="btn btn-outline-primary">Search</button>
+        </div>
+        </form>
+    <br />
+    <br />
+    @Html.ActionLink("Price ++", "ShowAllProduct", "Home", new { @Price = "++" },new{@class="btn btn-outline-success"})
+    @Html.ActionLink("Price --", "ShowAllProduct", "Home", new { @Price = "--" },new{@class="btn btn-outline-danger"})
+
+    <section id="content">
+    	<main>
+			<div class="table-data">
+				<div class="order row">
+                    <h3 style="text-align:center" class="text-danger">
+                        @ViewBag.CountError
+                    </h3>
+					@foreach (var item in Model)
+                    {
+                        <div class="col-md-3" style="padding-bottom:30px">
+                <a class="nav-item" style="text-decoration:none" href="/Home/DetailsProduct/@item.ID">
+                <div class="card" style="width: auto;border: 2px solid green;border-radius:10px">
+                    <img style="border-radius:10px" src="/Images/@item.Image"
+                        class="card-img-top" />
+                    <div class="card-body">
+                                            <h5 class="card-title">@item.Name</h5>
+                                        <p class="card-text">@item.Description</p>
+                        <p style="color: gainsboro">
+                            <i style="font-size:30px"
+                                class="fa-solid fa-cart-shopping">&emsp;</i><span>@item.Type</span>
+                                <p>    Còn: @item.AvailableQuantity sp</p>
+                        </p>
+                        <p class="card-text" style="color: red;  font-size: 17px">
+                            <span> <i class="fa-brands fa-hotjar"></i> -30%</span>
+                            &emsp;<span style="font-size: 20px"><span style="color:black;font-size: 16px"  >Giá :</span> @item.Price đ</span>
+                        </p>
+                        <br>
+                        <div class="row">
+                            <a href="/Home/DetailsProduct/@item.ID" class="btn btn-outline-success col-md-5">Chi Tiết</a>
+                            <div class="col-md-2"></div>
+                            <a href="/Cart/AddProductToCart/@item.ID" class="btn btn-primary col-md-5">Thêm <i style="font-size:20px"
+                                    class="fa-solid fa-cart-shopping"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                     }
+				</div>
+			</div>
+		</main>
+</section>
+
+</div>

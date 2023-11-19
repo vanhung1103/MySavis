@@ -1,0 +1,52 @@
+﻿@model Assignment.Models.CouponCode
+
+@{
+    ViewData["Title"] = "CreateCouponCode";
+        Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<br />
+
+<h1 style="text-align:center">Create Coupon Code</h1>
+<br />
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="CreateCouponCode">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="display:none">
+                <label asp-for="ID" class="control-label"></label>
+                <input asp-for="ID" class="form-control" />
+                <span asp-validation-for="ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CouponCodes" class="control-label"></label>
+                <input asp-for="CouponCodes" class="form-control" />
+                <span asp-validation-for="CouponCodes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CouponValue" class="control-label"></label>
+                <input asp-for="CouponValue" class="form-control" />
+                <span asp-validation-for="CouponValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <br />
+            <br />
+            <span style="color:red">@TempData["CreateCouponCode"]</span>
+            <br />
+            <div class="form-group">
+                <a asp-action="ShowListProduct" class="btn btn-secondary"><i class="fa-solid fa-backward"> Back</i></a>
+                <button type="submit" class="btn btn-success" >Creat <i class="fa-solid fa-plus"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+

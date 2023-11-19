@@ -1,0 +1,116 @@
+﻿@model Assignment.Models.Product
+
+@{
+    ViewData["Title"] = "CreateProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+<br />
+
+<h1 style="text-align:center">Create New Product</h1>
+<br />
+
+<div class="container">
+    <div >
+        <form asp-action="CreateProduct">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AvailableQuantity" class="control-label"></label>
+                <input asp-for="AvailableQuantity" class="form-control" />
+                <span asp-validation-for="AvailableQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size" class="control-label"></label>
+                <select asp-for="Size"  class="form-select">
+                    <option value="38">38</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                </select>
+                <span asp-validation-for="Size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Color" class="control-label"></label>
+                    <select asp-for="Color"  class="form-select">
+                    <option value="Red">Red</option>
+                    <option value="White">White</option>
+                    <option value="Black">Black</option>
+                    <option value="Blue">Blue</option>
+                </select>
+                <span asp-validation-for="Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplier" class="control-label"></label>
+                    <select asp-for="Supplier"  class="form-select">
+                    <option value="nike">NIKE</option>
+                    <option value="mlb">MLB</option>
+                    <option value="vans">VANS</option>
+                    <option value="adidas">ADIDAS</option>
+                    <option value="lv">LV</option>
+                    <option value="converse">CONVERSE</option>
+                </select>
+                <span asp-validation-for="Supplier" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="form-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="form-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label">First Image</label>
+                <input asp-for="Image" type="file"  accept="image/*"   class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image1" class="control-label">1nd Image</label>
+                <input asp-for="Image1" type="file"   accept="image/*"  class="form-control" />
+                <span asp-validation-for="Image1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image2" class="control-label">2nd Image</label>
+                <input asp-for="Image2" type="file"   accept="image/*"  class="form-control" />
+                <span asp-validation-for="Image2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image3" class="control-label">3nd Image</label>
+                <input asp-for="Image3" type="file"  accept="image/*"   class="form-control" />
+                <span asp-validation-for="Image3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image4" class="control-label">4nd Image</label>
+                <input asp-for="Image4" type="file"  accept="image/*"   class="form-control" />
+                <span asp-validation-for="Image4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image5" class="control-label">5nd Image</label>
+                <input asp-for="Image5" type="file"  accept="image/*"   class="form-control" />
+                <span asp-validation-for="Image5" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <a asp-action="ShowListProduct" class="btn btn-secondary"><i class="fa-solid fa-backward"> Back</i></a>
+                <button type="submit" class="btn btn-success" >Creat <i class="fa-solid fa-plus"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

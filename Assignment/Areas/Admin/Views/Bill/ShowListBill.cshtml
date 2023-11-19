@@ -1,0 +1,164 @@
+﻿@model IEnumerable<Assignment.ViewModels.QL_BillViews>
+
+@{
+    ViewData["Title"] = "ShowListBill";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+
+
+}
+<br />
+<h1 style="text-align:center">Show List Bill</h1>
+<br />
+
+                    <div class="nav-link active"><a class="nav-link active"  data-mdb-toggle="dropdown" >Lọc: Status</a>
+                        <div class="dropdown" style="margin-left:30px">
+                        <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink">
+                            <li>
+                                @Html.ActionLink("Tất cả","ShowListBill","Bill", new {area = "Admin"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Chờ xác nhận","ShowListBill","Bill", new {@Status = "1", area = "Admin"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Chuẩn bị hàng","ShowListBill","Bill", new {@Status = "2", area = "Admin"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Chờ vận chuyển","ShowListBill","Bill", new {@Status = "3", area = "Admin"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Đang giao hàng","ShowListBill","Bill", new {@Status = "4", area = "Admin"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Giao hàng thành công","ShowListBill","Bill", new {@Status = "5", area = "Admin"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Đã Hủy","ShowListBill","Bill", new {@Status = "0", area = "Admin"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Trả hàng","ShowListBill","Bill", new {@Status = "6", area = "Admin"},new { @class = "dropdown-item" })
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+    <form asp-action="ShowListBill" method="get" role="search" style="float:right">
+        <div class="input-group">
+            <input type="search" class="form-control rounded" placeholder="Search ..."
+                name="strSearch" aria-label="Search" aria-describedby="search-addon" style="width:300px" />
+            <button type="submit" class="btn btn-outline-primary">Search</button>
+        </div>
+    </form>
+<table class="table">
+    <thead>
+
+        <tr> 
+            <th>UserName</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>PhoneNumber</th>
+            <th>CreatDate</th>
+            <th>Total</th>
+            <th>ShippingFee</th>
+            <th>Discount</th>
+            <th>Status</th>
+            <th>#</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr >
+            <td style="display:none">
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td style="display:none">
+                @Html.DisplayFor(modelItem => item.UserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecipientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecipientAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecipientPhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAmout)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShippingFee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount)
+            </td>
+            <td>
+
+                    @{
+                        string temp = "";
+                        if (item.Status==0)
+                        {
+                            temp = "Đã Hủy";
+                        }
+                        
+                        else if (item.Status==1)
+                        {
+                            temp = "Chờ xác nhận";
+                        }
+                        else if (item.Status==2)
+                        {
+                            temp = "Chuẩn bị hàng";
+                        }
+                        else if (item.Status==3)
+                        {
+                            temp = "Chờ vận chuyển";
+                        }
+                        else if (item.Status==4)
+                        {
+                            temp = "Đang giao hàng";
+                        }
+                        else if (item.Status==5)
+                        {
+                            temp = "Giao hàng thành công";
+                        }
+                        else 
+                        {
+                            temp = "Trả hàng";
+                        }
+                }
+                    <div class="nav-link active"><a class="nav-link active"  data-mdb-toggle="dropdown" >@temp</a>
+                        <div class="dropdown" style="margin-left:30px">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li>
+                                @Html.ActionLink("Chuẩn bị hàng","UpdateStatusBill2","Bill", new {id = item.ID, area = "Admin"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Chờ vận chuyển","UpdateStatusBill3","Bill", new {id = item.ID, area = "Admin"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Đang giao hàng","UpdateStatusBill4","Bill", new {id = item.ID, area = "Admin"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Giao hàng thành công","UpdateStatusBill5","Bill", new {id = item.ID, area = "Admin"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Đã Hủy","UpdateStatusBill0","Bill", new {id = item.ID, area = "Admin"},new { @class = "dropdown-item" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Trả hàng","UpdateStatusBill6","Bill", new {id = item.ID, area = "Admin"},new { @class = "dropdown-item" })
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+            </td>
+            <td>
+                @Html.ActionLink("Detail","ShowListBillDetails","Bill", new {id = item.ID, area = "Admin"},new { @class = "btn btn-outline-primary" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

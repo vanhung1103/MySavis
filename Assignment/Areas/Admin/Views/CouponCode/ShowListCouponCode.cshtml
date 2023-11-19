@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Assignment.Models.CouponCode>
+
+@{
+    ViewData["Title"] = "ShowListCouponCode";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<br />
+
+<h1 style="text-align:center">Show List Coupon Code</h1>
+<br />
+
+ <p>
+        <a class="btn btn-outline-success" asp-action="CreateCouponCode">Tạo mã giảm giá mới <i class='bx bx-plus-medical'></i> </a>
+</p> 
+<table class="table">
+    <thead>
+        <tr>
+            <th style="display:none">
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                Mã Giảm Giá
+            </th>
+            <th>
+                Giá trị (vnd)
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Ngày hết hạn
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td style="display:none">
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CouponCodes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CouponValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                <br>
+                    @Html.ActionLink("Update","UpdateCouponCode","CouponCode", new {id = item.ID, area = "Admin"},new { @class = "btn btn-outline-primary" })
+                    @Html.ActionLink("Add Product","ShowListCouponCodeDetails","CouponCode", new {id = item.ID, area = "Admin"},new { @class = "btn btn-outline-success" })
+                    @Html.ActionLink("Delete","DeleteCouponCode","CouponCode", new {id = item.ID, area = "Admin"},new { @class = "btn btn-outline-danger" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

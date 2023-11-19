@@ -1,0 +1,153 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\adidas.jpg" />
+    <None Include="wwwroot\Images\adidas1.jpg" />
+    <None Include="wwwroot\Images\adidas2.jpg" />
+    <None Include="wwwroot\Images\adidas3.jpg" />
+    <None Include="wwwroot\Images\adidas4.jpg" />
+    <None Include="wwwroot\Images\banner1.jpg" />
+    <None Include="wwwroot\Images\banner2.jpg" />
+    <None Include="wwwroot\Images\converse.jpg" />
+    <None Include="wwwroot\Images\convesre1.jpg" />
+    <None Include="wwwroot\Images\convesre2.jpg" />
+    <None Include="wwwroot\Images\convesre3.jpg" />
+    <None Include="wwwroot\Images\convesre4.jpg" />
+    <None Include="wwwroot\Images\convesre5.jpg" />
+    <None Include="wwwroot\Images\convesre6.jpg" />
+    <None Include="wwwroot\Images\convesre7.jpg" />
+    <None Include="wwwroot\Images\convesre8.jpg" />
+    <None Include="wwwroot\Images\detail\doi-tra.jpg" />
+    <None Include="wwwroot\Images\detail\hoan-tien.jpg" />
+    <None Include="wwwroot\Images\detail\nike1.jpg" />
+    <None Include="wwwroot\Images\detail\nike1_1.jpg" />
+    <None Include="wwwroot\Images\detail\nike1_2.jpg" />
+    <None Include="wwwroot\Images\detail\nike1_3.jpg" />
+    <None Include="wwwroot\Images\detail\nike1_4.jpg" />
+    <None Include="wwwroot\Images\detail\nike1_5.jpg" />
+    <None Include="wwwroot\Images\detail\nike1_6.jpg" />
+    <None Include="wwwroot\Images\detail\unbox.png" />
+    <None Include="wwwroot\Images\detail\uudai.svg" />
+    <None Include="wwwroot\Images\header_logo.jpg" />
+    <None Include="wwwroot\Images\hot1.jpg" />
+    <None Include="wwwroot\Images\hot10.jpg" />
+    <None Include="wwwroot\Images\hot11.jpg" />
+    <None Include="wwwroot\Images\hot12.jpg" />
+    <None Include="wwwroot\Images\hot13.jpg" />
+    <None Include="wwwroot\Images\hot14.jpg" />
+    <None Include="wwwroot\Images\hot15.jpg" />
+    <None Include="wwwroot\Images\hot2.jpg" />
+    <None Include="wwwroot\Images\hot3.jpg" />
+    <None Include="wwwroot\Images\hot4.jpg" />
+    <None Include="wwwroot\Images\hot5.jpg" />
+    <None Include="wwwroot\Images\hot6.jpg" />
+    <None Include="wwwroot\Images\hot7.jpg" />
+    <None Include="wwwroot\Images\hot8.jpg" />
+    <None Include="wwwroot\Images\hot9.jpg" />
+    <None Include="wwwroot\Images\introduct1.jpg" />
+    <None Include="wwwroot\Images\language.jpg" />
+    <None Include="wwwroot\Images\Lv.jpg" />
+    <None Include="wwwroot\Images\lv1.jpg" />
+    <None Include="wwwroot\Images\lv2.jpg" />
+    <None Include="wwwroot\Images\lv3.jpg" />
+    <None Include="wwwroot\Images\lv4.jpg" />
+    <None Include="wwwroot\Images\lv5.jpg" />
+    <None Include="wwwroot\Images\lv6.jpg" />
+    <None Include="wwwroot\Images\lv7.jpg" />
+    <None Include="wwwroot\Images\lv8.jpg" />
+    <None Include="wwwroot\Images\mlb.jpg" />
+    <None Include="wwwroot\Images\mlb1.jpg" />
+    <None Include="wwwroot\Images\mlb2.jpg" />
+    <None Include="wwwroot\Images\mlb3.jpg" />
+    <None Include="wwwroot\Images\mlb4.jpg" />
+    <None Include="wwwroot\Images\mlb5.jpg" />
+    <None Include="wwwroot\Images\mlb6.jpg" />
+    <None Include="wwwroot\Images\mlb7.jpg" />
+    <None Include="wwwroot\Images\mlb8.jpg" />
+    <None Include="wwwroot\Images\nike.jpg" />
+    <None Include="wwwroot\Images\nike1.jpg" />
+    <None Include="wwwroot\Images\nike10.jpg" />
+    <None Include="wwwroot\Images\nike1_1.jpg" />
+    <None Include="wwwroot\Images\nike1_2.jpg" />
+    <None Include="wwwroot\Images\nike1_3.jpg" />
+    <None Include="wwwroot\Images\nike1_4.jpg" />
+    <None Include="wwwroot\Images\nike1_5.jpg" />
+    <None Include="wwwroot\Images\nike1_6.jpg" />
+    <None Include="wwwroot\Images\nike2.jpg" />
+    <None Include="wwwroot\Images\nike3.jpg" />
+    <None Include="wwwroot\Images\nike4.jpg" />
+    <None Include="wwwroot\Images\nike5.jpg" />
+    <None Include="wwwroot\Images\nike6.jpg" />
+    <None Include="wwwroot\Images\nike7.jpg" />
+    <None Include="wwwroot\Images\nike8.jpg" />
+    <None Include="wwwroot\Images\nike9.jpg" />
+    <None Include="wwwroot\Images\payment-item.jpg" />
+    <None Include="wwwroot\Images\PinkBanner.jpg" />
+    <None Include="wwwroot\Images\product1.jpg" />
+    <None Include="wwwroot\Images\product10.jpg" />
+    <None Include="wwwroot\Images\product11.jpg" />
+    <None Include="wwwroot\Images\product12.jpg" />
+    <None Include="wwwroot\Images\product13.jpg" />
+    <None Include="wwwroot\Images\product14.jpg" />
+    <None Include="wwwroot\Images\product15.jpg" />
+    <None Include="wwwroot\Images\product16.jpg" />
+    <None Include="wwwroot\Images\product17.jpg" />
+    <None Include="wwwroot\Images\product18.jpg" />
+    <None Include="wwwroot\Images\product19.jpg" />
+    <None Include="wwwroot\Images\product2.jpg" />
+    <None Include="wwwroot\Images\product20.jpg" />
+    <None Include="wwwroot\Images\product21.jpg" />
+    <None Include="wwwroot\Images\product22.jpg" />
+    <None Include="wwwroot\Images\product23.jpg" />
+    <None Include="wwwroot\Images\product24.jpg" />
+    <None Include="wwwroot\Images\product25.jpg" />
+    <None Include="wwwroot\Images\product26.jpg" />
+    <None Include="wwwroot\Images\product27.jpg" />
+    <None Include="wwwroot\Images\product28.jpg" />
+    <None Include="wwwroot\Images\product29.jpg" />
+    <None Include="wwwroot\Images\product30.jpg" />
+    <None Include="wwwroot\Images\product4.jpg" />
+    <None Include="wwwroot\Images\product5.jpg" />
+    <None Include="wwwroot\Images\product6.jpg" />
+    <None Include="wwwroot\Images\product7.jpg" />
+    <None Include="wwwroot\Images\product8.jpg" />
+    <None Include="wwwroot\Images\product9.jpg" />
+    <None Include="wwwroot\Images\vans.jpg" />
+    <None Include="wwwroot\Images\vans1.jpg" />
+    <None Include="wwwroot\Images\vans10.jpg" />
+    <None Include="wwwroot\Images\vans2.jpg" />
+    <None Include="wwwroot\Images\vans3.jpg" />
+    <None Include="wwwroot\Images\vans4.jpg" />
+    <None Include="wwwroot\Images\vans5.jpg" />
+    <None Include="wwwroot\Images\vans8.jpg" />
+    <None Include="wwwroot\Images\vans9.jpg" />
+  </ItemGroup>
+
+</Project>

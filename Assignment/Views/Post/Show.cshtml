@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Assignment.Models.Post>
+
+
+@{
+    ViewData["Title"] = "Show";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@foreach(var item in Model){
+    <div class = container>
+        <div class="card mb-4">
+        <a href="/Post/Detail/@item.Id">
+<img
+  src="/Images/@item.TittleImage"
+  class="img-fluid shadow-2-strong"
+  alt="Palm Springs Road"/>
+
+  <h5>@item.Tittle</h5>
+  </a>
+  </div>
+</div>
+}

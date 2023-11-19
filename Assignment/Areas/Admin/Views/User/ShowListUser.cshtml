@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Assignment.ViewModels.QL_UserViews>
+
+@{
+    ViewData["Title"] = "ShowAllUser";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+
+
+}
+<br />
+
+<h1 style="text-align:center" >Show All User</h1>
+<br />
+    <form asp-action="ShowListUser" method="get" role="search" style="float:right">
+        <div class="input-group">
+            <input type="search" class="form-control rounded" placeholder="Search ..."
+                name="strSearch" aria-label="Search" aria-describedby="search-addon" style="width:300px" />
+            <button type="submit" class="btn btn-outline-primary">Search</button>
+        </div>
+    </form>
+<p>
+    <a class="btn btn-outline-success" asp-action="CreateUser">Create New  <i class='bx bx-plus-medical'></i></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+@*            <th>
+                @Html.DisplayNameFor(model => model.UserID)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Avata)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img src="/Images/@item.Avata"  class="rounded-circle " height="60"  />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                    @Html.ActionLink("Update","UpdateUser","User", new {id = item.UserID, area = "Admin"},new { @class = "btn btn-outline-primary" })
+                    @Html.ActionLink("Delete","DeleteUser","User", new {id = item.UserID, area = "Admin"},new { @class = "btn btn-outline-danger" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
